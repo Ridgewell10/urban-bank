@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UBContracts;
+using UBEntities;
+using UBLoggingService;
 
 namespace UBServer.Extensions
 {
@@ -24,6 +25,16 @@ namespace UBServer.Extensions
             services.Configure<IISOptions>(options =>
             {
             });
+        }
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+        }
+        public static void ConfigurePostgresSqlContext (this IServiceCollection services,IConfiguration config)
+        {
+            var connString = config["ConnectionString : Bank"];
+            services.AddDbContext<RepositoryContext>(options =>
+            options.UseNpgsql(config.GetConnectionString("RepositoryContext")));
         }
     }
 }
