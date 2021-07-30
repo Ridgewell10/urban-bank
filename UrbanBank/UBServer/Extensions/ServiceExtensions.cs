@@ -33,8 +33,8 @@ namespace UBServer.Extensions
         public static void ConfigurePostgresSqlContext (this IServiceCollection services,IConfiguration config)
         {
             var connString = config["ConnectionString : Bank"];
-            services.AddDbContext<RepositoryContext>(options =>
-            options.UseNpgsql(config.GetConnectionString("RepositoryContext")));
+            services.AddDbContext<UBRepositoryContext>(options =>
+            options.UseNpgsql(config.GetConnectionString("UBRepositoryContext")));
         }
     }
 }

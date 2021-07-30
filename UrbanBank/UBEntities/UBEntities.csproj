@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UBContracts\UBContracts.csproj" />
-    <ProjectReference Include="..\UBEntities\UBEntities.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
   </ItemGroup>
 
 </Project>
