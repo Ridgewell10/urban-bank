@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 using UBContracts;
 using UBEntities;
 using UBLoggingService;
@@ -33,8 +34,8 @@ namespace UBServer.Extensions
         public static void ConfigurePostgresSqlContext (this IServiceCollection services,IConfiguration config)
         {
             var connString = config["ConnectionString : Bank"];
-            services.AddDbContext<UBRepositoryContext>(options =>
-            options.UseNpgsql(config.GetConnectionString("UBRepositoryContext")));
+            services.AddDbContext<RepositoryContext>(o => o.UseNpgsql(connString));
+
         }
     }
 }

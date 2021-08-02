@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using UBContracts;
 using UBEntities;
-using static UBEntities.UBRepositoryContext;
 
 namespace RepositoryBase
 {
