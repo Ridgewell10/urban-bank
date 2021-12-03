@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.homeText{
+    font-size: 35px;
+    color: red;
+    text-align: center;
+    position: relative;
+    top:30px;
+    text-shadow: 2px 2px 2px gray;
+}
