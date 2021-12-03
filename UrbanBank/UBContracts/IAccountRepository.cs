@@ -5,7 +5,8 @@ using UBEntities.Models;
 
 namespace UBContracts
 {
-    public interface IAccountRepository : IRepositoryBase <Account>
+    public interface IAccountRepository : IRepositoryBase<Account>
     {
+        IEnumerable<Account> AccountsByOwner(Guid ownerId);
     }
 }

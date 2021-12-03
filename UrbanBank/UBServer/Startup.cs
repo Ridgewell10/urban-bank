@@ -36,6 +36,7 @@ namespace UBServer
             services.ConfigureIISIntegration();
             services.ConfigureLoggerService();
             services.ConfigurePostgresSqlContext(Configuration);
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
 
         }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RepositoryBase;
 using System.Configuration;
 using UBContracts;
 using UBEntities;
@@ -36,6 +37,11 @@ namespace UBServer.Extensions
             var connString = config["ConnectionString : Bank"];
             services.AddDbContext<RepositoryContext>(o => o.UseNpgsql(connString));
 
+        }
+
+        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
     }
 }
